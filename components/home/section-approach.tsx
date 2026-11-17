@@ -17,6 +17,7 @@ export function SectionApproach() {
       <Figure
         ratio="aspect-[1.65/1]"
         objectPosition="center 60%"
+        parallax
         className="mt-16 md:mt-24"
       />
     </section>

@@ -15,7 +15,7 @@ export function MobileMenu() {
   }
 
   return (
-    <div className="sm:hidden">
+    <div data-intro-nav className="sm:hidden">
       <button
         type="button"
         aria-expanded={open}

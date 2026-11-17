@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 import { Figure } from "@/components/ui/figure";
 
-const TILE_COUNT = 14;
+const TILE_COUNT = 24;
 const STEP = 360 / TILE_COUNT;
 /** Resting spin, in degrees per second. */
-const BASE_SPEED = 6;
+const BASE_SPEED = 5;
 /** Extra degrees per second for each px/s of scroll velocity. */
 const SCROLL_GAIN = 0.03;
 const MAX_BOOST = 60;
@@ -100,9 +100,9 @@ export function ImageRing({ className = "" }: { className?: string }) {
     <div
       ref={stageRef}
       aria-hidden
-      className={`pointer-events-none overflow-hidden [perspective:1800px] [perspective-origin:var(--cx)_50%] ${className}`}>
-      {/* Tilt: seen slightly from above. */}
-      <div className="absolute top-1/2 left-(--cx) transform-3d [transform:rotateX(-12deg)]">
+      className={`pointer-events-none overflow-hidden [perspective:calc(var(--r)*5)] [perspective-origin:var(--cx)_50%] ${className}`}>
+      {/* Tilt: seen from above, so the far arc shows over the near one. */}
+      <div className="absolute top-1/2 left-(--cx) transform-3d [transform:rotateX(-11deg)]">
         <div
           ref={ringRef}
           className="transform-3d"
@@ -110,13 +110,13 @@ export function ImageRing({ className = "" }: { className?: string }) {
           {Array.from({ length: TILE_COUNT }, (_, i) => (
             <div
               key={i}
-              className="absolute top-0 left-0 h-[calc(var(--r)*1.15)] w-[calc(var(--r)*0.42)] backface-hidden"
+              className="absolute top-0 left-0 h-[calc(var(--r)*0.3)] w-[calc(var(--r)*0.25)]"
               style={{
                 transform: `translate(-50%, -50%) rotateY(${i * STEP}deg) translateZ(var(--r))`,
               }}>
               <Figure
                 ratio="h-full"
-                sizes="(min-width: 48rem) 12vw, 20vw"
+                sizes="(min-width: 48rem) 12vw, 15vw"
                 objectPosition={`${(i * 37) % 100}% ${30 + ((i * 23) % 50)}%`}
               />
             </div>
