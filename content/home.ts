@@ -69,7 +69,16 @@ export type HomeContent = {
     /** Sixteen placeholder wordmarks (Lipsum words, never real companies). */
     logos: ClientLogo[];
   };
-  awards: { title: string; statement: string };
+  awards: {
+    /** ~15-word lead (h2) at cols 9–20; the section shows its index only, no title. */
+    lead: string;
+    cta: string;
+    /** Four counters: an underlined label ending in a colon, a target number, ~8 words and a link. */
+    stats: { label: string; value: number; description: string; cta: string }[];
+    projectsTitle: string;
+    /** Two "recent project" cards (wide + narrow). */
+    projects: { title: string; cta: string }[];
+  };
 };
 
 export const home: HomeContent = {
@@ -190,5 +199,39 @@ export const home: HomeContent = {
       { name: "Eiusmod", treatment: "boxed" },
     ],
   },
-  awards: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
+  awards: {
+    lead: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore.",
+    cta: "Lorem ipsum",
+    stats: [
+      {
+        label: "Lorem ipsum:",
+        value: 70,
+        description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+        cta: "Lorem ipsum",
+      },
+      {
+        label: "Dolor sit:",
+        value: 103,
+        description: "Sed do eiusmod tempor incididunt ut labore dolore.",
+        cta: "Lorem ipsum",
+      },
+      {
+        label: "Amet elit:",
+        value: 63,
+        description: "Ut enim ad minim veniam quis nostrud exercitation.",
+        cta: "Lorem ipsum",
+      },
+      {
+        label: "Sed eiusmod:",
+        value: 450,
+        description: "Duis aute irure dolor in reprehenderit voluptate.",
+        cta: "Lorem ipsum",
+      },
+    ],
+    projectsTitle: "Lorem ipsum dolor sit",
+    projects: [
+      { title: "Lorem Ipsum Dolor", cta: "Lorem ipsum" },
+      { title: "Sit Amet Consectetur", cta: "Lorem ipsum" },
+    ],
+  },
 };
