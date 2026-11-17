@@ -130,9 +130,57 @@ body {
     display: inline-block;
   }
 
-  /* Custom cursor (components/motion/cursor.tsx). */
-  .cursor-dot {
-    display: none;
+  /* Project ring (components/projects/project-ring.tsx).
+   * Item positions: rotateY(--a) translateZ(radius) from the ring's centre.
+   * Pose: --tilt / --yaw, eased by the pointer. */
+  .ring-stage {
+    --tilt: -36deg;
+    --yaw: 0deg;
+    --r: min(28vw, 42svh);
+    --card-w: calc(var(--r) * 0.26);
+    --card-h: calc(var(--r) * 0.18);
+    --pop: calc(var(--r) * 0.06);
+    perspective: calc(var(--r) * 8);
+  }
+  .ring-pose {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--tilt)) rotateY(var(--yaw));
+  }
+  .ring-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: var(--card-w);
+    height: var(--card-h);
+    /* Last rotateY turns the face from tangential to radial. */
+    transform: translate(-50%, -50%) rotateY(var(--a)) translateZ(var(--r))
+      translateY(0) rotateY(90deg);
+  }
+  .ring-card[data-active] {
+    transform: translate(-50%, -50%) rotateY(var(--a))
+      translateZ(calc(var(--r) + var(--pop))) translateY(calc(var(--pop) * -0.5))
+      rotateY(90deg);
+  }
+  .ring-card:focus-visible {
+    outline: 1px solid var(--ink);
+    outline-offset: 2px;
+  }
+  .ring-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Out past the cards, then turned back to face the viewer, then nudged
+     * away from the ring so the text never overlaps it. */
+    transform: translate(-50%, -50%) rotateY(var(--a))
+      translateZ(calc(var(--r) + var(--card-w) / 2 + 1rem))
+      rotateY(calc(-1 * var(--a))) rotateY(calc(-1 * var(--yaw)))
+      rotateX(calc(-1 * var(--tilt)))
+      translateY(calc(cos(var(--a)) * var(--card-h) * 0.5))
+      translate(calc(sin(var(--a)) * 50%), calc(cos(var(--a)) * 60%));
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -151,32 +199,9 @@ body {
     html[data-js] [data-reveal]:not([data-revealed]) .reveal-word > span {
       transform: translateY(110%);
     }
-  }
 
-  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .cursor-dot {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      width: 14px;
-      height: 14px;
-      margin: -7px 0 0 -7px;
-      border-radius: 9999px;
-      background: #fff;
-      mix-blend-mode: difference;
-      pointer-events: none;
-      opacity: 0;
-      transition:
-        opacity 200ms,
-        scale 250ms var(--ease-out-expo);
-    }
-    .cursor-dot[data-visible] {
-      opacity: 1;
-    }
-    .cursor-dot[data-hover] {
-      scale: 1.8;
+    .ring-card {
+      transition: transform 500ms var(--ease-out-expo);
     }
   }
 }

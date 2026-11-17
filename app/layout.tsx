@@ -4,7 +4,6 @@ import { figtree } from "@/fonts";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { IntroLoader } from "@/components/motion/intro-loader";
-import { Cursor } from "@/components/motion/cursor";
 import { MOTION_BOOT_SCRIPT } from "@/lib/motion";
 
 export const metadata: Metadata = {
@@ -28,7 +27,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <IntroLoader />
         {children}
         <Footer />
-        <Cursor />
       </body>
     </html>
   );
