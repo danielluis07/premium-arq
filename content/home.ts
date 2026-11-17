@@ -7,8 +7,21 @@ export type HomeContent = {
     columns: [string[], string[]];
     cta: string;
   };
-  definition: { statement: string };
-  approach: { title: string; statement: string };
+  definition: {
+    /** Dictionary-entry headword, shown huge. */
+    word: string;
+    phonetic: string;
+    partOfSpeech: string;
+    subtitle: string;
+    /** Two short paragraphs (~35 and ~25 words). */
+    paragraphs: string[];
+  };
+  approach: {
+    title: string;
+    statement: string;
+    /** Left column: two paragraphs; right column: one. */
+    columns: [string[], string[]];
+  };
   services: { title: string; statement: string };
   offices: { title: string; statement: string };
   team: { title: string; statement: string };
@@ -38,8 +51,29 @@ export const home: HomeContent = {
     ],
     cta: "Lorem ipsum",
   },
-  definition: { statement: "Lorem ipsum dolor sit amet" },
-  approach: { title: "Lorem ipsum", statement: "Lorem ipsum dolor sit amet" },
+  definition: {
+    word: "Lorem",
+    phonetic: "/lo:rem/",
+    partOfSpeech: "noun",
+    subtitle: "Lorem ipsum dolor sit",
+    paragraphs: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute.",
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+    ],
+  },
+  approach: {
+    title: "Lorem ipsum",
+    statement: "Lorem ipsum dolor.",
+    columns: [
+      [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, duis aute irure dolor.",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia.",
+      ],
+      [
+        "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim.",
+      ],
+    ],
+  },
   services: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
   offices: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
   team: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
