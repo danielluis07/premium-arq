@@ -1,5 +1,5 @@
 export type HomeContent = {
-  hero: { title: string };
+  hero: { title: string; lead: string; secondaryLead: string };
   work: { title: string; statement: string; cta: string };
   definition: { statement: string };
   approach: { title: string; statement: string };
@@ -11,7 +11,12 @@ export type HomeContent = {
 };
 
 export const home: HomeContent = {
-  hero: { title: "Lorem ipsum" },
+  hero: {
+    title: "Lorem ipsum dolor sit.",
+    lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+    secondaryLead:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
+  },
   work: {
     title: "Lorem ipsum",
     statement: "Lorem ipsum dolor sit amet",
