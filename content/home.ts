@@ -1,3 +1,20 @@
+/** Typographic treatment of a placeholder client wordmark; see `ClientMark`. */
+export type ClientTreatment =
+  | "caps" // heavy uppercase
+  | "serif" // serif italic
+  | "wide" // light, wide-tracked uppercase
+  | "stacked" // two lines, split on "\n"
+  | "boxed" // uppercase inside a 1px frame
+  | "lower" // lowercase with a full stop
+  | "mark"; // simple geometric symbol + word
+
+export type ClientLogo = {
+  name: string;
+  treatment: ClientTreatment;
+  /** Symbol drawn beside the word; only used by the "mark" treatment. */
+  mark?: "circle" | "square" | "triangle" | "half";
+};
+
 export type HomeContent = {
   hero: { title: string; lead: string; secondaryLead: string };
   work: {
@@ -44,7 +61,14 @@ export type HomeContent = {
     /** Labels for the TextLinks under the lead and under the paragraphs. */
     ctas: [string, string];
   };
-  clients: { title: string; statement: string };
+  clients: {
+    title: string;
+    /** Two lines; the "\n" is honoured from md up. */
+    statement: string;
+    lead: string;
+    /** Sixteen placeholder wordmarks (Lipsum words, never real companies). */
+    logos: ClientLogo[];
+  };
   awards: { title: string; statement: string };
 };
 
@@ -143,6 +167,28 @@ export const home: HomeContent = {
     ],
     ctas: ["Lorem ipsum", "Dolor sit"],
   },
-  clients: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
+  clients: {
+    title: "Lorem ipsum",
+    statement: "Lorem ipsum dolor\nconsectetur adipiscing.",
+    lead: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore.",
+    logos: [
+      { name: "LOREM", treatment: "caps" },
+      { name: "Ipsum", treatment: "serif" },
+      { name: "Dolor Sit", treatment: "wide" },
+      { name: "amet", treatment: "mark", mark: "circle" },
+      { name: "Sint\nOccaecat", treatment: "stacked" },
+      { name: "Veniam", treatment: "mark", mark: "triangle" },
+      { name: "aliqua", treatment: "lower" },
+      { name: "Nostrud", treatment: "boxed" },
+      { name: "Tempor", treatment: "serif" },
+      { name: "ELIT", treatment: "caps" },
+      { name: "Labore", treatment: "mark", mark: "square" },
+      { name: "Fugiat", treatment: "wide" },
+      { name: "Quis\nNostrum", treatment: "stacked" },
+      { name: "cillum", treatment: "lower" },
+      { name: "Ullamco", treatment: "mark", mark: "half" },
+      { name: "Eiusmod", treatment: "boxed" },
+    ],
+  },
   awards: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
 };
