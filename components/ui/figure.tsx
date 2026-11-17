@@ -8,7 +8,8 @@ type FigureProps = {
   objectPosition?: string;
   /** Responsive `sizes` hint; defaults to full viewport width. */
   sizes?: string;
-  priority?: boolean;
+  /** Load immediately with high fetch priority. Use for the LCP image only. */
+  eager?: boolean;
   alt?: string;
   className?: string;
 };
@@ -17,7 +18,7 @@ export function Figure({
   ratio = "aspect-[4/3]",
   objectPosition = "center",
   sizes = "100vw",
-  priority,
+  eager,
   alt = "",
   className = "",
 }: FigureProps) {
@@ -28,7 +29,8 @@ export function Figure({
         alt={alt}
         fill
         sizes={sizes}
-        priority={priority}
+        loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : undefined}
         className="object-cover"
         style={{ objectPosition }}
       />
