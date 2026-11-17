@@ -1,6 +1,5 @@
 import { navLinks } from "./nav-data";
 import { NavLink } from "./nav-link";
-import { LangSwitcher } from "./lang-switcher";
 import { MobileMenu } from "./mobile-menu";
 import { Wordmark } from "./wordmark";
 
@@ -17,7 +16,6 @@ export function Header() {
           ))}
         </nav>
       </div>
-      <LangSwitcher className="hidden sm:block" />
       <MobileMenu />
     </header>
   );

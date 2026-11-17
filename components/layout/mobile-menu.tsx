@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { navLinks } from "./nav-data";
 import { NavLink } from "./nav-link";
-import { LangSwitcher } from "./lang-switcher";
 
 export function MobileMenu() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -49,7 +48,6 @@ export function MobileMenu() {
             </NavLink>
           ))}
         </nav>
-        <LangSwitcher className="mt-12" />
       </dialog>
     </div>
   );
