@@ -33,7 +33,17 @@ export type HomeContent = {
     /** Three accordion rows: an oversized name, ~20-word description and a few short contact lines. */
     items: { name: string; description: string; contact: string[] }[];
   };
-  team: { title: string; statement: string };
+  team: {
+    title: string;
+    /** Use "\n" to set the desktop line break (two lines). */
+    statement: string;
+    /** ~25-word lead set in h2 on the left. */
+    lead: string;
+    /** Two body paragraphs in the right column (~25 and ~35 words). */
+    paragraphs: [string, string];
+    /** Labels for the TextLinks under the lead and under the paragraphs. */
+    ctas: [string, string];
+  };
   clients: { title: string; statement: string };
   awards: { title: string; statement: string };
 };
@@ -123,7 +133,16 @@ export const home: HomeContent = {
       },
     ],
   },
-  team: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
+  team: {
+    title: "Lorem ipsum",
+    statement: "Lorem ipsum dolor sit amet\nconsectetur.",
+    lead: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis.",
+    paragraphs: [
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.",
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.",
+    ],
+    ctas: ["Lorem ipsum", "Dolor sit"],
+  },
   clients: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
   awards: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
 };
