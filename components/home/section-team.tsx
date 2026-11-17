@@ -49,6 +49,7 @@ export function SectionTeam() {
       <Figure
         ratio="aspect-[1.65/1]"
         objectPosition="center 70%"
+        parallax
         className="mt-16"
       />
     </section>

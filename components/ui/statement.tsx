@@ -1,11 +1,16 @@
-import type { ReactNode } from "react";
+import { LineReveal, RevealWords } from "@/components/motion/line-reveal";
 
+/** Display-size section statement; reveals line by line on scroll. */
 export function Statement({
   children,
   className = "",
 }: {
-  children: ReactNode;
+  children: string;
   className?: string;
 }) {
-  return <h2 className={`text-display text-left ${className}`}>{children}</h2>;
+  return (
+    <LineReveal className={`text-display text-left ${className}`}>
+      <RevealWords text={children} />
+    </LineReveal>
+  );
 }

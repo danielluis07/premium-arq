@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Parallax } from "@/components/motion/parallax";
 import { PLACEHOLDER_IMAGE } from "@/lib/placeholder";
 
 type FigureProps = {
@@ -10,6 +11,8 @@ type FigureProps = {
   sizes?: string;
   /** Load immediately with high fetch priority. Use for the LCP image only. */
   eager?: boolean;
+  /** Image drifts vertically (±5%) inside the frame on scroll. Use on full-width images. */
+  parallax?: boolean;
   alt?: string;
   className?: string;
 };
@@ -19,21 +22,26 @@ export function Figure({
   objectPosition = "center",
   sizes = "100vw",
   eager,
+  parallax,
   alt = "",
   className = "",
 }: FigureProps) {
+  const image = (
+    <Image
+      src={PLACEHOLDER_IMAGE}
+      alt={alt}
+      fill
+      sizes={sizes}
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : undefined}
+      className="object-cover"
+      style={{ objectPosition }}
+    />
+  );
+
   return (
     <div className={`relative w-full overflow-hidden ${ratio} ${className}`}>
-      <Image
-        src={PLACEHOLDER_IMAGE}
-        alt={alt}
-        fill
-        sizes={sizes}
-        loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : undefined}
-        className="object-cover"
-        style={{ objectPosition }}
-      />
+      {parallax ? <Parallax>{image}</Parallax> : image}
     </div>
   );
 }
