@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #fffffc;
+  --ink: #000000;
+  --section-gap: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 40rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --section-gap: 3rem;
   }
 }
 
+@media (min-width: 48rem) {
+  :root {
+    --section-gap: 6rem;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-figtree);
+
+  --spacing-gutter: 1.5rem;
+  --spacing-section: var(--section-gap);
+
+  --text-jumbo: 10.1rem;
+  --text-jumbo--line-height: 1.06;
+  --text-jumbo--letter-spacing: -0.07em;
+  --text-display: 6.5rem;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.07em;
+  --text-h2: 3rem;
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.05em;
+  --text-h3: 2rem;
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.03em;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-base--letter-spacing: -0.01em;
+  --text-small: 0.8rem;
+  --text-small--line-height: 1.1;
+  --text-small--letter-spacing: -0.01em;
+}
+
+html {
+  /* Fluid root: 17.43px @ 1536px, floored at 15px. Everything else is rem. */
+  font-size: max(15px, 1.135vw);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
 }
