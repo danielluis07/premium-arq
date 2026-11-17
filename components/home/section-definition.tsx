@@ -25,6 +25,7 @@ export function SectionDefinition() {
           ))}
         </div>
         <Figure
+          image={3}
           ratio="aspect-[6/7]"
           objectPosition="30% center"
           sizes="(min-width: 48rem) 33vw, 100vw"
@@ -33,6 +34,7 @@ export function SectionDefinition() {
       </Grid>
 
       <Figure
+        image={9}
         ratio="aspect-[1.65/1]"
         objectPosition="center 30%"
         parallax

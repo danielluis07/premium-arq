@@ -71,6 +71,7 @@ export function SectionAwards() {
               href="#"
               className={`col-span-24 block ${card.span}`}>
               <Figure
+                image={i + 10}
                 ratio={`${card.ratio} md:aspect-auto md:h-[29.8rem]`}
                 objectPosition={card.objectPosition}
                 sizes={card.sizes}

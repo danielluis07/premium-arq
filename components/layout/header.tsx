@@ -13,7 +13,7 @@ export function Header() {
           data-intro-nav
           className="hidden gap-4 sm:flex">
           {navLinks.map((l) => (
-            <NavLink key={l.label} href={l.href} active={l.active}>
+            <NavLink key={l.label} href={l.href}>
               {l.label}
             </NavLink>
           ))}

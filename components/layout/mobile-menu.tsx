@@ -39,11 +39,7 @@ export function MobileMenu() {
         </div>
         <nav aria-label="Principal" className="mt-8 flex flex-col gap-4">
           {navLinks.map((l) => (
-            <NavLink
-              key={l.label}
-              href={l.href}
-              active={l.active}
-              className="text-h3">
+            <NavLink key={l.label} href={l.href} className="text-h3">
               {l.label}
             </NavLink>
           ))}

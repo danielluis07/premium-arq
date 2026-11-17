@@ -140,6 +140,7 @@ export function WorkGallery({ className = "" }: { className?: string }) {
                 { "--x": `${tile.x}rem`, "--y": `${tile.y}rem` } as CSSProperties
               }>
               <Figure
+                image={i + 2}
                 ratio={shape.ratio}
                 sizes="(min-width: 48rem) 30vw, 70vw"
                 objectPosition={tile.objectPosition}

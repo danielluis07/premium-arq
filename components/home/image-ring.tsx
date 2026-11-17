@@ -115,6 +115,7 @@ export function ImageRing({ className = "" }: { className?: string }) {
                 transform: `translate(-50%, -50%) rotateY(${i * STEP}deg) translateZ(var(--r))`,
               }}>
               <Figure
+                image={i}
                 ratio="h-full"
                 sizes="(min-width: 48rem) 12vw, 15vw"
                 objectPosition={`${(i * 37) % 100}% ${30 + ((i * 23) % 50)}%`}

@@ -20,6 +20,7 @@ export function Hero() {
       </LineReveal>
 
       <Figure
+        image={0}
         ratio="aspect-[1.82/1]"
         objectPosition="center 40%"
         eager
@@ -41,6 +42,7 @@ export function Hero() {
       </div>
 
       <Figure
+        image={5}
         ratio="aspect-[1.82/1]"
         objectPosition="center 70%"
         parallax

@@ -32,12 +32,14 @@ export function SectionServices() {
 
       <Grid className="mt-16 gap-y-6 md:mt-24 md:gap-x-6">
         <Figure
+          image={1}
           ratio="aspect-[476/640] md:aspect-auto md:h-[36.75rem]"
           objectPosition="30% center"
           sizes="(min-width: 48rem) 33vw, 100vw"
           className="col-span-24 md:col-span-8"
         />
         <Figure
+          image={4}
           ratio="aspect-[3/2] md:aspect-auto md:h-[36.75rem]"
           objectPosition="center 65%"
           sizes="(min-width: 48rem) 66vw, 100vw"

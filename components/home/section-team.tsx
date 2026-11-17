@@ -18,12 +18,14 @@ export function SectionTeam() {
           (~980×540 / ~476×540 @1536). Row gap only on mobile so the 24-col grid never overflows. */}
       <Grid className="mt-12 gap-y-6 md:gap-x-6">
         <Figure
+          image={6}
           ratio="aspect-[3/2] md:aspect-auto md:h-[33.75rem]"
           objectPosition="center 40%"
           sizes="(min-width: 48rem) 66vw, 100vw"
           className="col-span-24 md:col-span-16"
         />
         <Figure
+          image={8}
           ratio="aspect-[476/540] md:aspect-auto md:h-[33.75rem]"
           objectPosition="75% center"
           sizes="(min-width: 48rem) 33vw, 100vw"
@@ -47,6 +49,7 @@ export function SectionTeam() {
       </Grid>
 
       <Figure
+        image={11}
         ratio="aspect-[1.65/1]"
         objectPosition="center 70%"
         parallax
