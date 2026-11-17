@@ -15,6 +15,7 @@ export function SectionApproach() {
       <TwoColumnCopy columns={home.approach.columns} className="mt-16" />
 
       <Figure
+        image={7}
         ratio="aspect-[1.65/1]"
         objectPosition="center 60%"
         parallax

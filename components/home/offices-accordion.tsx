@@ -69,6 +69,7 @@ export function OfficesAccordion({
                     </address>
                   </div>
                   <Figure
+                    image={index}
                     ratio="aspect-[700/470]"
                     sizes="(min-width: 48rem) 50vw, 100vw"
                     className="col-span-24 md:col-span-12"

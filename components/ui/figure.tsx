@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Parallax } from "@/components/motion/parallax";
-import { PLACEHOLDER_IMAGE } from "@/lib/placeholder";
+import { imageAt } from "@/lib/placeholder";
 
 type FigureProps = {
+  /** Which photo from the pool to show (wraps around). Vary it so neighbours differ. */
+  image?: number;
   /** Tailwind aspect/height classes for the box, e.g. "aspect-[4/5]" or "h-[40rem]". */
   ratio?: string;
   /** CSS object-position, to show a different crop of the same photo. */
@@ -18,6 +20,7 @@ type FigureProps = {
 };
 
 export function Figure({
+  image: imageIndex = 0,
   ratio = "aspect-[4/3]",
   objectPosition = "center",
   sizes = "100vw",
@@ -28,7 +31,7 @@ export function Figure({
 }: FigureProps) {
   const image = (
     <Image
-      src={PLACEHOLDER_IMAGE}
+      src={imageAt(imageIndex)}
       alt={alt}
       fill
       sizes={sizes}
