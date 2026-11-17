@@ -22,7 +22,12 @@ export type HomeContent = {
     /** Left column: two paragraphs; right column: one. */
     columns: [string[], string[]];
   };
-  services: { title: string; statement: string };
+  services: {
+    title: string;
+    statement: string;
+    /** Eight rows: an underlined title and a one-line description. Use "\n" in a title to wrap it. */
+    items: { title: string; description: string }[];
+  };
   offices: { title: string; statement: string };
   team: { title: string; statement: string };
   clients: { title: string; statement: string };
@@ -74,7 +79,23 @@ export const home: HomeContent = {
       ],
     ],
   },
-  services: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
+  services: {
+    title: "Lorem ipsum",
+    statement: "Lorem ipsum dolor-sit amet.",
+    items: [
+      { title: "Lorem Ipsum", description: "dolor sit amet consectetur" },
+      { title: "Dolor Sit", description: "adipiscing elit sed do eiusmod" },
+      { title: "Amet", description: "tempor incididunt ut labore" },
+      { title: "Consectetur", description: "et dolore magna aliqua" },
+      { title: "Sed Do", description: "ut enim ad minim veniam" },
+      { title: "Eiusmod Tempor", description: "quis nostrud exercitation" },
+      { title: "Magna", description: "ullamco laboris nisi ut aliquip" },
+      {
+        title: "Lorem Ipsum and\nDolor",
+        description: "tempor incididunt ut labore",
+      },
+    ],
+  },
   offices: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
   team: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
   clients: { title: "Lorem ipsum", statement: "Lorem ipsum dolor" },
