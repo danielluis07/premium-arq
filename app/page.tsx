@@ -10,7 +10,7 @@ import { SectionAwards } from "@/components/home/section-awards";
 
 export default function Home() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 pt-28">
       <Hero />
       <SectionWork />
       <SectionDefinition />
