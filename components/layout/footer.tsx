@@ -5,20 +5,27 @@ import { Wordmark } from "./wordmark";
 
 const groups = [
   {
-    label: "Lorem",
+    label: "Estúdio",
     links: [
-      "Lorem ipsum",
-      "Dolor",
-      "Amet",
-      "Consectetur",
-      "Sit",
-      "Lorem",
-      "Elit",
+      "Sobre nós",
+      "Equipe",
+      "Abordagem",
+      "Serviços",
+      "Escritórios",
+      "Trabalhe conosco",
+      "Imprensa",
     ],
   },
   {
-    label: "Ipsum",
-    links: ["Lorem ipsum", "Dolor sit", "Amet elit", "Sed do", "Tempor", "Magna"],
+    label: "Projetos",
+    links: [
+      "Residencial",
+      "Hotelaria",
+      "Corporativo",
+      "Interiores",
+      "Urbanismo",
+      "Restauro",
+    ],
   },
 ] as const;
 
@@ -56,17 +63,17 @@ export function Footer() {
 
       <Grid className="mt-24 gap-y-4 text-small md:gap-x-6">
         <div className="col-span-24 flex flex-wrap items-center gap-x-4 gap-y-2 md:col-span-16">
-          <span>Lorem ipsum | Lorem ipsum ©2026</span>
+          <span>premium.arq | Arquitetura e interiores ©2026</span>
           <Link href="#" className={underlined}>
-            Lorem Ipsum
+            Privacidade
           </Link>
           <Link href="#" className={underlined}>
-            Dolor &amp; Sit
+            Termos de uso
           </Link>
         </div>
         <div className="col-span-24 md:col-span-8 md:col-start-17">
           <Link href="#" className={underlined}>
-            Lorem ipsum dolor
+            Fale com a gente
           </Link>
         </div>
       </Grid>
