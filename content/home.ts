@@ -105,8 +105,8 @@ export const home: HomeContent = {
   },
   definition: {
     word: "Premium",
-    phonetic: "/ˈpɾe.mi.ũ/",
-    partOfSpeech: "adjetivo",
+    phonetic: "/prê·mi·um/",
+    partOfSpeech: "adj. 2g.",
     subtitle: "O que sobra quando se tira o excesso",
     paragraphs: [
       "Para nós, premium não quer dizer mais caro. Quer dizer pensado até o fim: a porta que abre para o lado certo, a janela que enquadra a árvore, a escada que não cansa. Tudo o que está na obra tem um motivo.",
