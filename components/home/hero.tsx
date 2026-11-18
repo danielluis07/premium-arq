@@ -3,6 +3,9 @@ import { ImageRing } from "@/components/home/image-ring";
 import { LineReveal, RevealWords } from "@/components/motion/line-reveal";
 import { home } from "@/content/home";
 
+/** Pexels 7031408 — contemporary wooden house, stone accents, large windows. Free under the Pexels license. */
+const HERO_IMAGE = "https://images.pexels.com/photos/7031408/pexels-photo-7031408.jpeg";
+
 export function Hero() {
   return (
     <section className="px-gutter">
@@ -20,7 +23,7 @@ export function Hero() {
       </LineReveal>
 
       <Figure
-        image={0}
+        src={HERO_IMAGE}
         ratio="aspect-[1.82/1]"
         objectPosition="center 40%"
         eager

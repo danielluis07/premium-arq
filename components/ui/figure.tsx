@@ -5,6 +5,8 @@ import { imageAt } from "@/lib/placeholder";
 type FigureProps = {
   /** Which photo from the pool to show (wraps around). Vary it so neighbours differ. */
   image?: number;
+  /** Explicit image URL; overrides `image` when set (for photos outside the pool). */
+  src?: string;
   /** Tailwind aspect/height classes for the box, e.g. "aspect-[4/5]" or "h-[40rem]". */
   ratio?: string;
   /** CSS object-position, to show a different crop of the same photo. */
@@ -21,6 +23,7 @@ type FigureProps = {
 
 export function Figure({
   image: imageIndex = 0,
+  src,
   ratio = "aspect-[4/3]",
   objectPosition = "center",
   sizes = "100vw",
@@ -31,7 +34,7 @@ export function Figure({
 }: FigureProps) {
   const image = (
     <Image
-      src={imageAt(imageIndex)}
+      src={src ?? imageAt(imageIndex)}
       alt={alt}
       fill
       sizes={sizes}
