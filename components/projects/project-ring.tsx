@@ -51,27 +51,41 @@ export function ProjectRing({ projects, categories, statement }: Props) {
 
   // The cards never re-render: hover state is toggled on the DOM directly,
   // so only the preview updates when the active project changes.
+  // Only projects with a page are links (and focusable); the rest preview on
+  // hover but lead nowhere.
   const cards = useMemo(
     () =>
-      projects.map((project, i) => (
-        <Link
-          key={project.slug}
-          href={`/projetos/${project.slug}`}
-          prefetch={false}
-          data-index={i}
-          aria-label={`${project.title} — ${project.category}`}
-          className="ring-card"
-          style={
-            { "--a": `${angleOf(i, projects.length)}deg` } as CSSProperties
-          }>
+      projects.map((project, i) => {
+        const props = {
+          "data-index": i,
+          className: "ring-card",
+          style: {
+            "--a": `${angleOf(i, projects.length)}deg`,
+          } as CSSProperties,
+        };
+        const figure = (
           <Figure
             image={project.cover}
             ratio="h-full"
             sizes="10rem"
             objectPosition={`${(i * 37) % 100}% center`}
           />
-        </Link>
-      )),
+        );
+        return project.hasPage ? (
+          <Link
+            key={project.slug}
+            href={`/projetos/${project.slug}`}
+            data-featured=""
+            aria-label={`${project.title} — ${project.category}`}
+            {...props}>
+            {figure}
+          </Link>
+        ) : (
+          <div key={project.slug} aria-hidden {...props}>
+            {figure}
+          </div>
+        );
+      }),
     [projects],
   );
 
@@ -240,6 +254,7 @@ export function ProjectRing({ projects, categories, statement }: Props) {
           </div>
           <p className="mt-[calc(var(--r)*0.03)] text-small">
             {project?.category}
+            {project?.hasPage && " · Ver projeto +"}
           </p>
         </div>
       </div>
