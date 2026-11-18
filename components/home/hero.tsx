@@ -11,7 +11,7 @@ export function Hero() {
     <section className="px-gutter">
       <LineReveal
         as="h1"
-        className="text-display text-center min-[84rem]:text-jumbo min-[84rem]:whitespace-nowrap">
+        className="text-display text-center min-[84rem]:text-[length:min(var(--text-jumbo),9.2vw)] min-[84rem]:whitespace-nowrap">
         <span className="relative inline-block">
           <RevealWords text={home.hero.title} />
           {/* Intro handoff: a black box with white text over the title, wiped away by

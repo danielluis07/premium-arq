@@ -7,9 +7,9 @@ import { IntroLoader } from "@/components/motion/intro-loader";
 import { MOTION_BOOT_SCRIPT } from "@/lib/motion";
 
 export const metadata: Metadata = {
-  title: "Lorem ipsum — dolor sit amet",
+  title: "premium.arq — arquitetura bem pensada",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+    "Estúdio de arquitetura, interiores e paisagismo com escritórios em São Paulo, Curitiba e Cunha. Projetos que começam no terreno e vão até a obra.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

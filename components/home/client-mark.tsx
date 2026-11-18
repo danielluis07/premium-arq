@@ -18,7 +18,7 @@ function MarkSymbol({ shape }: { shape: NonNullable<ClientLogo["mark"]> }) {
 }
 
 /**
- * Placeholder client wordmark: Lipsum text set in one of a few deliberately different
+ * Placeholder client wordmark: Invented names set in one of a few deliberately different
  * treatments, so a grid of them reads like a logo wall. Fits within ~140×80px (8×4.6rem).
  */
 export function ClientMark({ logo }: { logo: ClientLogo }) {

@@ -1,9 +1,9 @@
 /**
  * Projects shown on /projetos.
  *
- * The ring is filled with copies of one placeholder project: each copy gets
- * its own slug, a category (so the ring has groups to label) and a cover from
- * the placeholder photo pool (so neighbouring cards differ).
+ * The ring is filled with copies of one placeholder project per category: each
+ * copy gets its own slug, the category (so the ring has groups to label) and a
+ * cover from the placeholder photo pool (so neighbouring cards differ).
  *
  * One slot is the featured project, the only one with a page of its own
  * (`content/project-pages.ts`); every other card is a preview only.
@@ -37,10 +37,21 @@ export const projectCategories: ProjectCategory[] = [
   { name: "Restauro", count: 9 },
 ];
 
-const baseProject = {
-  slug: "residencia-lorem",
-  title: "Residência Lorem Ipsum",
-};
+/** Placeholder title for each category's copies, in `projectCategories` order. */
+const categoryTitles = [
+  "Casa da Encosta",
+  "Edifício Praça Norte",
+  "Loja Ágata",
+  "Pousada do Vale",
+  "Apartamento Lume",
+  "Escola Araucária",
+  "Centro Cultural Cais",
+  "Clínica Brisa",
+  "Ginásio Terra",
+  "Edifício Praça Nova",
+  "Parque Linear Ipê",
+  "Casarão Ouro Fino",
+];
 
 /**
  * The project with a page. It takes the slot at `index` in the ring: a
@@ -57,8 +68,8 @@ export const featuredProject = {
 export const projects: Project[] = projectCategories
   .flatMap((category, c) =>
     Array.from({ length: category.count }, (_, i) => ({
-      ...baseProject,
-      slug: `${baseProject.slug}-${c + 1}-${i + 1}`,
+      slug: `projeto-${c + 1}-${i + 1}`,
+      title: categoryTitles[c],
       category: category.name,
       // Step through the pool with a stride so neighbours rarely repeat.
       cover: c * 5 + i * 7,

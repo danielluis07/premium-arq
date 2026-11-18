@@ -3,14 +3,14 @@
 import { useLayoutEffect, useRef } from "react";
 import type { MotionWindow } from "@/lib/motion";
 
-/** The second word of "Lorem ___." cycles through these. */
-const WORDS = ["ipsum", "dolor", "amet", "elit", "magna"];
+/** The second word of "Desenhamos ___." cycles through these. */
+const WORDS = ["casas", "hotéis", "escolas", "praças", "lugares"];
 const WORD_MS = 250;
 /** Hero highlight wipe + nav fade (see globals.css); a little slack before cleanup. */
 const WIPE_MS = 700;
 
 /**
- * First-visit intro: a paper overlay with a black "Lorem ___." box whose second
+ * First-visit intro: a paper overlay with a black "Desenhamos ___." box whose second
  * word cycles, then the overlay drops and the hero H1's black highlight wipes
  * away while the nav fades in (~2s total).
  *
@@ -56,7 +56,7 @@ export function IntroLoader() {
       aria-hidden
       className="intro-overlay fixed inset-0 z-40 items-center justify-center bg-paper px-gutter">
       <p className="bg-ink px-[0.25em] pb-[0.1em] text-h2 text-paper md:text-display">
-        Lorem <span ref={wordRef}>{WORDS[0]}</span>.
+        Desenhamos <span ref={wordRef}>{WORDS[0]}</span>.
       </p>
     </div>
   );
