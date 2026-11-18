@@ -160,10 +160,15 @@ body {
     transform: translate(-50%, -50%) rotateY(var(--a)) translateZ(var(--r))
       translateY(0) rotateY(90deg);
   }
-  /* Active (hovered/focused) cards pop out; so does the featured project,
-   * permanently, so the one card with a page is easy to spot and hit. */
-  .ring-card[data-active],
+  /* The featured project (the one card with a page) sits permanently raised
+   * so it's easy to spot, but stays in line with its neighbours: pushing it
+   * out radially would make it read as a longer card. */
   .ring-card[data-featured] {
+    transform: translate(-50%, -50%) rotateY(var(--a)) translateZ(var(--r))
+      translateY(calc(var(--pop) * -0.5)) rotateY(90deg);
+  }
+  /* Active (hovered/focused) cards pop out radially. */
+  .ring-card[data-active] {
     transform: translate(-50%, -50%) rotateY(var(--a))
       translateZ(calc(var(--r) + var(--pop))) translateY(calc(var(--pop) * -0.5))
       rotateY(90deg);
