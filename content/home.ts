@@ -27,8 +27,6 @@ export type HomeContent = {
   definition: {
     /** Dictionary-entry headword, shown huge. */
     word: string;
-    phonetic: string;
-    partOfSpeech: string;
     subtitle: string;
     /** Two short paragraphs (~35 and ~25 words). */
     paragraphs: string[];
@@ -105,8 +103,6 @@ export const home: HomeContent = {
   },
   definition: {
     word: "Premium",
-    phonetic: "/prê·mi·um/",
-    partOfSpeech: "adj. 2g.",
     subtitle: "O que sobra quando se tira o excesso",
     paragraphs: [
       "Para nós, premium não quer dizer mais caro. Quer dizer pensado até o fim: a porta que abre para o lado certo, a janela que enquadra a árvore, a escada que não cansa. Tudo o que está na obra tem um motivo.",

@@ -3,17 +3,15 @@ import { Grid } from "@/components/ui/grid";
 import { home } from "@/content/home";
 
 export function SectionDefinition() {
-  const { word, phonetic, partOfSpeech, subtitle, paragraphs } = home.definition;
+  const { word, subtitle, paragraphs } = home.definition;
 
   return (
     <section className="px-gutter mt-section">
-      {/* Dictionary-entry row: word, phonetic and part of speech share one baseline. */}
-      <div className="flex flex-wrap items-baseline gap-x-3 border-b md:gap-x-6 border-black pb-2">
+      {/* Dictionary-entry headword, ruled underneath. */}
+      <div className="border-b border-black pb-2">
         <h2 className="text-h2 md:text-display">
           <dfn className="not-italic">{word}</dfn>
         </h2>
-        <span className="text-base md:text-h3">{phonetic}</span>
-        <span className="ml-auto text-base md:text-h3">{partOfSpeech}</span>
       </div>
 
       <p className="mt-6 text-h2">{subtitle}</p>
